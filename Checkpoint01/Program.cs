@@ -29,10 +29,10 @@ namespace Checkpoint01
             bool pointingUp = char.Equals(triangle.ToLower()[0], 'a') ? true : false; //Skapar ett bool utefter första bokstaven i strängen som representerar om triangeln har ett skarpt hörn uppåt.
             int triangleSize = int.Parse(triangle.Substring(1)); // resten av strängen omvandlas till ett heltal
 
-            for (int column = 0; column < triangleSize; column++) //for-loopen skriver ut så många rader som triangeln ska bli lång
+            for (int column = 1; column < triangleSize; column++) //for-loopen skriver ut så många rader som triangeln ska bli lång
             {
                 if (pointingUp)
-                    Console.WriteLine(new string('*', column+1));
+                    Console.WriteLine(new string('*', column+2));
                 else
                     Console.WriteLine(new string('*', triangleSize-column));
 
