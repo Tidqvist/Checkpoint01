@@ -11,11 +11,11 @@ namespace Checkpoint01
             {
                 string[] triangels;
 
-                //do // I loopen inhämtas användarens input, inputen delas upp i en array och valideras. 
-                //{
+                do // I loopen inhämtas användarens input, inputen delas upp i en array och valideras. 
+                {
                     string input = GetUserInput("Write command: ");
                     triangels = input.Split('-', StringSplitOptions.RemoveEmptyEntries);
-                //} while (ValidateTriangels(triangels) == false); // Om valideringen genererar false upprepas loopen och användaren får ange input på nytt.
+                } while (ValidateTriangels(triangels) == false); // Om valideringen genererar false upprepas loopen och användaren får ange input på nytt.
 
                 foreach (string triangle in triangels) //för varje triangel i listan anropas funktionen som skriver ut en triagel enligt specifikationen
                 {
@@ -54,7 +54,7 @@ namespace Checkpoint01
             }
         }
 
-        private static string GetUserInput(string message)
+        private static string GetUserInput(string message) 
         {
             Console.WriteLine(message);
             var input = Console.ReadLine();
@@ -65,12 +65,15 @@ namespace Checkpoint01
             return input;
         }
 
-        private static bool ValidateTriangels(string[] triangels)
+        private static bool ValidateTriangels(string[] triangels) //Validering
         {
             foreach (var triangle in triangels)
             {
-                if (!Regex.IsMatch(triangle, "^[abAB]\\d+$")) { 
+                if (!Regex.IsMatch(triangle, "^[abAB]\\d+$"))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;     //Errormessage in red
                     Console.WriteLine("Felaktigt format: " + triangle);
+                    Console.ResetColor();
                     return false;
                 }
             }
