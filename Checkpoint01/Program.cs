@@ -72,7 +72,7 @@ namespace Checkpoint01
                 if (!Regex.IsMatch(triangle, "^[abAB]\\d+$"))
                 {
                     Console.ForegroundColor = ConsoleColor.Red;     //Errormessage in red
-                    Console.WriteLine("Felaktigt format: " + triangle);
+                    Console.WriteLine("Felaktigt format: " + triangle);     //TODO: errormessage i rött och 'triangle' i "vanlig" färg istället? Spexigt!
                     Console.ResetColor();
                     return false;
                 }
